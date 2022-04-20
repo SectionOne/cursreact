@@ -6,9 +6,15 @@ function sumar(){
 
 const nom = "Joan";
 
+const inLineStyle = {
+  color: "#2ecc71",
+  fontSize: "20px",
+}
+
 function App() {
   return (
     <>
+      <p style={inLineStyle}>InLineStyle</p>
       <div className="red">
         <h2>Children</h2>
       </div>
