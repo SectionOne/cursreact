@@ -2,6 +2,8 @@ import './App.css';
 import Header from './Header.js';
 import FunctionalComponent from './FunctionalComponent.js';
 import ClassComponent from './ClassComponent.js';
+import FunctionalComponent1 from './FunctionalComponent1.js';
+import {useState} from 'react';
 
 function App() {
 
@@ -10,6 +12,15 @@ function App() {
     nom: "Pere",
     edat: 23
   }
+
+  //Const per fer un exemple de rebre dades de Fill a Pare
+  const [data, setData] = useState("");
+
+  const childToParent = (dataFromChild) => {
+    console.log("child to parent", dataFromChild);
+    setData(dataFromChild);
+  }
+
   return (
     <>
     <div className='bg-primary card'>
@@ -30,6 +41,11 @@ function App() {
         propsFunctionalNumber = { 3 }
         propsFunctionalObject = {propsFuncObject}
         />
+      </div>
+      <div>
+          {data}
+          <FunctionalComponent1 childToParent = { childToParent }
+          />
       </div>
     </>
   );
