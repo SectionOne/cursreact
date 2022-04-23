@@ -6,7 +6,7 @@ import Salutacio from './Salutacio.js';
   render() {
     var usuari = "Oriol";
     return(
-      <h1 className="salutacio"><img src={logo} height="50px" /> El teu portal de montanya.  <Salutacio nick={usuari} /> </h1>
+      <h1 className="salutacio"><img src={logo} height="50px" alt="My Awesome Image"/> El teu portal de montanya.  <Salutacio nick={usuari} /> </h1>
     )
   }
 
