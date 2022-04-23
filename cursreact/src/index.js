@@ -36,7 +36,9 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/refugis" element={<Refugis />} />
+          <Route path="/refugis" element={<Refugis />} >
+            <Route path=":id" element={<Refugis />} />
+          </Route>
           <Route path="/rutes" element={<Rutes />} />
         </Routes>
       </BrowserRouter>
