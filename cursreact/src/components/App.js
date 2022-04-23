@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './Header.js';
+
 import FunctionalComponent from './FunctionalComponent.js';
 import ClassComponent from './ClassComponent.js';
 import FunctionalComponent1 from './FunctionalComponent1.js';
@@ -23,9 +23,8 @@ function App() {
 
   return (
     <>
-    <div className='bg-primary card'>
-      <Header/>
-      </div>
+    
+      {/* L'etiqueta <Switch> observa els components definits en cada etiqueta <Route>s i renderitza el primer que coincideix amb la URL. */}
       <div>
         <FunctionalComponent
         propsFunctional1 = { propFunc1 }
@@ -47,7 +46,8 @@ function App() {
           <FunctionalComponent1 childToParent = { childToParent }
           />
       </div>
-    </>
+  </>
+  
   );
 }
 
