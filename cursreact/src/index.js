@@ -5,6 +5,7 @@ import Header from './components/Header.js';
 import App from './components/App.js';
 import Rutes from './components/Rutes.js';
 import Refugis from './components/Refugis.js';
+import Contacta from './components/Contacta.js';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -30,6 +31,9 @@ root.render(
             <li className='nav-item'>
               <a href="/rutes" className='nav-link'>Rutes</a>
             </li>
+            <li className='nav-item'>
+              <a href="/contacta" className='nav-link'>Contacta</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -40,6 +44,7 @@ root.render(
             <Route path=":id" element={<Refugis />} />
           </Route>
           <Route path="/rutes" element={<Rutes />} />
+          <Route path="/contacta" element={<Contacta />} />
         </Routes>
       </BrowserRouter>
   
