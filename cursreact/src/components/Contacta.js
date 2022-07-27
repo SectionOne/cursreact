@@ -3,17 +3,19 @@ import React from 'react';
 const MyForm = () => {
     const [values, setValues] = React.useState({
       name: '',
-      email: ''
+      email: '',
+      gender: '',
     })
   
     const [validations, setValidations] = React.useState({
       name: '',
-      email: ''
+      email: '',
+      gender: '',
     })
   
     const validateAll = () => {
-      const { name, email } = values
-      const validations = { name: '', email: '' }
+      const { name, email, gender } = values
+      const validations = { name: '', email: '', gender: '' }
       let isValid = true
   
       if (!name) {
@@ -33,6 +35,11 @@ const MyForm = () => {
   
       if (email && !/\S+@\S+\.\S+/.test(email)) {
         validations.email = 'El format del email ha de ser com example@mail.com'
+        isValid = false
+      }
+
+      if (!gender) {
+        validations.gender = 'El genere és obligatori'
         isValid = false
       }
 
@@ -80,9 +87,9 @@ const MyForm = () => {
       alert(JSON.stringify(values))
     }
 
-    const { name, email } = values
-  
-    const { name: nameVal, email: emailVal } = validations
+    const { name, email, gender } = values
+
+    const { name: nameVal, email: emailVal, gender: genderVal } = validations
 
     return (
       <div>
@@ -115,7 +122,31 @@ const MyForm = () => {
             </label>
             <div>{emailVal}</div>
           </div>
-          
+
+          <div>
+            <label>
+              Dona
+              <input
+                type="radio"
+                name="gender"
+                value="D"
+                onChange={handleChange}
+                onBlur={validateOne}
+              />
+            </label>
+            <label>
+              Home
+              <input
+                type="radio"
+                name="gender"
+                value="H"
+                onChange={handleChange}
+                onBlur={validateOne}
+              />
+            </label>
+            <div>{genderVal}</div>
+          </div>
+
           <button type="submit">Send</button>
         </form>
   
