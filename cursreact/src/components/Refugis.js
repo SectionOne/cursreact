@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import RefugioJson from './refugios.json';
 
 function Refugis(){
-   const nombres = [1, 2, 3, 4, 5];
-   const ListRefus = nombres.map((nombre) => 
-    <li><a href={`/refugis/${nombre}`}>Refugi {`${nombre}`}</a></li>
+   const refugios = RefugioJson;
+   const ListRefus = refugios.map((refugio) => 
+    <li key={refugio.refugio_id}><a href={`/refugis/${refugio.slug}`}>Refugi {`${refugio.name}`}</a></li>
    );
 
     //Guardem en el console log els parametres que rebem
