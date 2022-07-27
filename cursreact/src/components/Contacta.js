@@ -2,16 +2,18 @@ import React from 'react';
 
 const MyForm = () => {
     const [values, setValues] = React.useState({
-      name: ''
+      name: '',
+      email: ''
     })
   
     const [validations, setValidations] = React.useState({
-      name: ''
+      name: '',
+      email: ''
     })
   
     const validateAll = () => {
-      const { name } = values
-      const validations = { name: '' }
+      const { name, email } = values
+      const validations = { name: '', email: '' }
       let isValid = true
   
       if (!name) {
@@ -23,7 +25,17 @@ const MyForm = () => {
         validations.name = 'El nom ha de contenir entre 3 i 50 caràcters'
         isValid = false
       }
-    
+      
+      if (!email) {
+        validations.email = 'Email és obligatori'
+        isValid = false
+      }
+  
+      if (email && !/\S+@\S+\.\S+/.test(email)) {
+        validations.email = 'El format del email ha de ser com example@mail.com'
+        isValid = false
+      }
+
       if (!isValid) {
         setValidations(validations)
       }
@@ -44,6 +56,10 @@ const MyForm = () => {
         message = 'El nom ha de contenir entre 3 i 50 caràcters'
       }
   
+      if (value && name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+        message = 'El format del email ha de ser com example@mail.com'
+      }
+
       setValidations({ ...validations, [name]: message })
     }
   
@@ -64,9 +80,9 @@ const MyForm = () => {
       alert(JSON.stringify(values))
     }
 
-    const { name } = values
+    const { name, email } = values
   
-    const { name: nameVal } = validations
+    const { name: nameVal, email: emailVal } = validations
 
     return (
       <div>
@@ -85,6 +101,21 @@ const MyForm = () => {
             </label>
             <div>{nameVal}</div>
           </div>
+          
+          <div>
+            <label>
+              Email:
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                onBlur={validateOne}
+              />
+            </label>
+            <div>{emailVal}</div>
+          </div>
+          
           <button type="submit">Send</button>
         </form>
   
